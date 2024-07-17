@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\Users\Develop2024-i3\source\NETFRAMEWORK\conector mysql v4.5.2\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,8 +44,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AsignacionCuatriMetodos.cs" />
+    <Compile Include="AsignaturasGestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassBLLHorariosMySQL\ClassBLLHorariosMySQL.csproj">
+      <Project>{15C4FA62-FD6C-40B6-A0B8-B740D53DCC1B}</Project>
+      <Name>ClassBLLHorariosMySQL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassDALMySql\ClassDALMySql.csproj">
+      <Project>{E34A5FA6-98BA-4D9B-915C-8E20A056A692}</Project>
+      <Name>ClassDALMySql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClassEntities\ClassEntities.csproj">
+      <Project>{76B263FE-B370-4403-B452-FC7DAB0DB2A1}</Project>
+      <Name>ClassEntities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
