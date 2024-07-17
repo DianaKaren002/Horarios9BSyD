@@ -139,6 +139,10 @@
       <Project>{15C4FA62-FD6C-40B6-A0B8-B740D53DCC1B}</Project>
       <Name>ClassBLLHorariosMySQL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ClassEntities\ClassEntities.csproj">
+      <Project>{76b263fe-b370-4403-b452-fc7dab0db2a1}</Project>
+      <Name>ClassEntities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClassMetodos\ClassMetodos.csproj">
       <Project>{84e236b3-71dd-4149-8196-f60360fbc6bc}</Project>
       <Name>ClassMetodos</Name>

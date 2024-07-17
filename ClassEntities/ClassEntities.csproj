@@ -81,7 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsignacionCuatrimestral.cs" />
-    <Compile Include="Asignaturas.cs" />
+    <Compile Include="Asignatura.cs" />
     <Compile Include="Aulas.cs" />
     <Compile Include="DiaSemana.cs" />
     <Compile Include="Divisiones.cs" />

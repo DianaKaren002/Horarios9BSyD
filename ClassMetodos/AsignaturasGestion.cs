@@ -39,5 +39,54 @@ namespace ClassMetodos
         {
             objBLL.EjecutaInstruccion("delete from asignaturas where idasignatura = '" + NumId + "' ");
         }
+        public string InsertarAsignatura(Asignatura nueva)
+        {
+            string Mensaje;
+            try
+            {
+                objBLL.EjecutaInstruccion($"INSERT INTO asignaturas (NomAsignatura,DescripcionAsig, HrsxSemana, Cuatrimestre) VALUES ('{nueva.NomAsignatura}', '{nueva.DescripcionAsig}', '{nueva.HrsxSemana}', '{nueva.Cuatrimestre}')");
+                return Mensaje = "Área insertada correctamente.";
+            }
+            catch (Exception ex)
+            {
+                return Mensaje = $"Error al insertar el área: {ex.Message}";
+            }
+        }
+        public void EditarAsignatura(Asignatura nueva, string NombreViejo)
+        {
+            objBLL.EjecutaInstruccion($"UPDATE asignaturas set NomAsignatura = '{nueva.NomAsignatura}',DescripcionAsig = '{nueva.DescripcionAsig}', HrsxSemana='{nueva.HrsxSemana}', Cuatrimestre = '{nueva.Cuatrimestre}' WHERE NomAsignatura = '{NombreViejo}'");
+        }
+        public string[] NombresAsignaturas()
+        {
+            return objBLL.EjecutaSqlResultados("select NomAsignatura from asignaturas");
+        }
+        public Asignatura ObtenerAsignaturaPorNombre(string nombreAsignatura)
+        {
+            Asignatura asignatura = null;
+            string instSql = $"SELECT * FROM asignaturas WHERE NomAsignatura = '{nombreAsignatura}'";
+
+            try
+            {
+                DataSet ds = objBLL.ConsultaTabla(instSql);
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    DataRow row = ds.Tables[0].Rows[0];
+                    asignatura = new Asignatura
+                    {
+                        idasignatura = Convert.ToInt32(row["IdAsignatura"]),
+                        NomAsignatura = row["NomAsignatura"].ToString(),
+                        DescripcionAsig = row["DescripcionAsig"].ToString(),
+                        HrsxSemana = Convert.ToInt32(row["HrsxSemana"]),
+                        Cuatrimestre = Convert.ToInt32(row["Cuatrimestre"])
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener la asignatura por nombre: " + ex.Message);
+            }
+
+            return asignatura;
+        }
     }
 }

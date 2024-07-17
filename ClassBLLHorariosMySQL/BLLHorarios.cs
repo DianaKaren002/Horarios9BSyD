@@ -76,5 +76,43 @@ namespace ClassBLLHorariosMySQL
                 }
             }
         }
+        public string[] EjecutaSqlResultados(string instruccionsql)
+        {
+            List<string> resultados = new List<string>();
+
+            try
+            {
+                Conexion = new MySqlConnection(cad);
+                MySqlCommand Comando = new MySqlCommand();
+                Comando.Connection = Conexion;
+                Comando.CommandText = instruccionsql;
+
+                Conexion.Open();
+                using (MySqlDataReader Lector = Comando.ExecuteReader())
+                {
+                    if (Lector.HasRows)
+                    {
+                        while (Lector.Read())
+                        {
+                            resultados.Add(Lector[0].ToString());
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al ejecutar la instrucción SQL: " + ex.Message);
+            }
+            finally
+            {
+                if (Conexion != null && Conexion.State == ConnectionState.Open)
+                {
+                    Conexion.Close();
+                    Conexion.Dispose();
+                }
+            }
+
+            return resultados.ToArray();
+        }
     }
 }
