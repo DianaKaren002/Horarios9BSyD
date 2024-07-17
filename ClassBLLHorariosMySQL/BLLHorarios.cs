@@ -51,5 +51,30 @@ namespace ClassBLLHorariosMySQL
             }
             return contenedor;
         }
+        public void EjecutaInstruccion(string instruccionSql)
+        {
+            try
+            {
+                Conexion = new MySqlConnection(cad);
+                MySqlCommand Comando = new MySqlCommand();
+                Comando.Connection = Conexion;
+                Comando.CommandText = instruccionSql;
+
+                Conexion.Open();
+                Comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al ejecutar la instrucción SQL: " + ex.Message);
+            }
+            finally
+            {
+                if (Conexion != null && Conexion.State == ConnectionState.Open)
+                {
+                    Conexion.Close();
+                    Conexion.Dispose();
+                }
+            }
+        }
     }
 }

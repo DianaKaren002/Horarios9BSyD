@@ -13,7 +13,7 @@ namespace ClassMetodos
 {
     public class AsignaturasGestion
     {
-        private BLLHorarios objBLL = null;
+        private BLLHorarios objBLL = new BLLHorarios("Server=localhost; Port=3306; Database=horariosutp9b; Uid=root; SslMode=None;");
 
         public DataTable MostrarAsignaturas()
         {
@@ -34,6 +34,10 @@ namespace ClassMetodos
             }
 
             return resultTable;
+        }
+        public void Bajas(int NumId)
+        {
+            objBLL.EjecutaInstruccion("delete from asignaturas where idasignatura = '" + NumId + "' ");
         }
     }
 }
