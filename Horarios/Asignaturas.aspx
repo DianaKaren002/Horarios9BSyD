@@ -20,23 +20,16 @@
             </div>
             Mostrar Areas existentes:
             <div style="justify-content: center; display: flex;">
-                <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
-                    <ContentTemplate>
-                        <asp:GridView ID="GridAsignaturas" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridAsignaturas_SelectedIndexChanged">
-                            <Columns>
-                                <asp:BoundField DataField="idasignatura" HeaderText="Id" />
-                                <asp:BoundField DataField="NomAsignatura" HeaderText="Asignatura" />
-                                <asp:BoundField DataField="DescripcionAsig" HeaderText="Descripcion" />
-                                <asp:BoundField DataField="HrsxSemana" HeaderText="Horas a la semana" />
-                                <asp:BoundField DataField="Cuatrimestre" HeaderText="Cuatrimestre" />
-                                <asp:CommandField HeaderText="Eliminar" SelectText="Borrar Asignatura" ShowSelectButton="True" ItemStyle-CssClass="btnDelete" />
-                            </Columns>
-                        </asp:GridView>
-                    </ContentTemplate>
-                    <Triggers>
-                        <asp:AsyncPostBackTrigger ControlID="btnEditarAsig" EventName="Click" />
-                    </Triggers>
-                </asp:UpdatePanel>
+                <asp:GridView ID="GridAsignaturas" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridAsignaturas_SelectedIndexChanged">
+                    <Columns>
+                        <asp:BoundField DataField="idasignatura" HeaderText="Id" />
+                        <asp:BoundField DataField="NomAsignatura" HeaderText="Asignatura" />
+                        <asp:BoundField DataField="DescripcionAsig" HeaderText="Descripcion" />
+                        <asp:BoundField DataField="HrsxSemana" HeaderText="Horas a la semana" />
+                        <asp:BoundField DataField="Cuatrimestre" HeaderText="Cuatrimestre" />
+                        <asp:CommandField HeaderText="Eliminar" SelectText="Borrar Asignatura" ShowSelectButton="True" ItemStyle-CssClass="btnDelete" />
+                    </Columns>
+                </asp:GridView>
             </div>
             <div id="popup" class="popup">
                 <div class="popup-content">

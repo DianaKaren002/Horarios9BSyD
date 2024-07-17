@@ -11,7 +11,7 @@ namespace Horarios
 {
 
 
-    public partial class Asignaturas
+    public partial class Docente
     {
 
         /// <summary>
@@ -24,15 +24,6 @@ namespace Horarios
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control ScriptManager1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-
-        /// <summary>
         /// Control btnAbrirPopup.
         /// </summary>
         /// <remarks>
@@ -42,67 +33,58 @@ namespace Horarios
         protected global::System.Web.UI.WebControls.Button btnAbrirPopup;
 
         /// <summary>
-        /// Control btnEditar.
+        /// Control GridDocentes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditar;
+        protected global::System.Web.UI.WebControls.GridView GridDocentes;
 
         /// <summary>
-        /// Control GridAsignaturas.
+        /// Control txtNomDocente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridAsignaturas;
+        protected global::System.Web.UI.WebControls.TextBox txtNomDocente;
 
         /// <summary>
-        /// Control txtNomAsignatura.
+        /// Control txtA_Pat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNomAsignatura;
+        protected global::System.Web.UI.WebControls.TextBox txtA_Pat;
 
         /// <summary>
-        /// Control txtDescripcionAsig.
+        /// Control txtA_Mat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescripcionAsig;
+        protected global::System.Web.UI.WebControls.TextBox txtA_Mat;
 
         /// <summary>
-        /// Control txtHoras.
+        /// Control txtExtra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtHoras;
+        protected global::System.Web.UI.WebControls.TextBox txtExtra;
 
         /// <summary>
-        /// Control txtCuatrimestre.
+        /// Control btnRegistrarDocente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtCuatrimestre;
-
-        /// <summary>
-        /// Control btnInsertarAsignatura.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInsertarAsignatura;
+        protected global::System.Web.UI.WebControls.Button btnRegistrarDocente;
 
         /// <summary>
         /// Control lbRespuesta.
@@ -114,57 +96,57 @@ namespace Horarios
         protected global::System.Web.UI.WebControls.Label lbRespuesta;
 
         /// <summary>
-        /// Control DropListAsignatura.
+        /// Control DropListDocentes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropListAsignatura;
+        protected global::System.Web.UI.WebControls.DropDownList DropListDocentes;
 
         /// <summary>
-        /// Control txtEditNomb.
+        /// Control txtEditNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditNomb;
+        protected global::System.Web.UI.WebControls.TextBox txtEditNombre;
 
         /// <summary>
-        /// Control txtEditDesc.
+        /// Control txtEditA_pat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditDesc;
+        protected global::System.Web.UI.WebControls.TextBox txtEditA_pat;
 
         /// <summary>
-        /// Control txtEditHora.
+        /// Control txtEditA_mat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtEditHora;
+        protected global::System.Web.UI.WebControls.TextBox txtEditA_mat;
 
         /// <summary>
-        /// Control txtEditCuatri.
+        /// Control txtEditExtra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtEditCuatri;
+        protected global::System.Web.UI.WebControls.TextBox txtEditExtra;
 
         /// <summary>
-        /// Control btnEditarAsig.
+        /// Control btnEditarDocente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEditarAsig;
+        protected global::System.Web.UI.WebControls.Button btnEditarDocente;
     }
 }

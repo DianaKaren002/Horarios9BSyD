@@ -30,7 +30,7 @@ namespace Horarios
         {
             int NumRenglon = GridAsignaturas.SelectedIndex;
             int NumId = Convert.ToInt32(GridAsignaturas.Rows[NumRenglon].Cells[0].Text);
-            //asig.Bajas(NumId);
+            asig.Bajas(NumId);
             GridAsignaturas.DataSource = asig.MostrarAsignaturas();
             GridAsignaturas.DataBind();
         }
@@ -91,7 +91,6 @@ namespace Horarios
 
             GridAsignaturas.DataSource = asig.MostrarAsignaturas();
             GridAsignaturas.DataBind();
-            ScriptManager.RegisterStartupScript(this, GetType(), "closePopup2", "closePopup2();", true);
         }
     }
 }
