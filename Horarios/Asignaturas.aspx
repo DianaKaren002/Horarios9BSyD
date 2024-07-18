@@ -34,15 +34,7 @@
             <div id="popup" class="popup">
                 <div class="popup-content">
                     <span class="close" onclick="cerrarPopup()">&times;</span>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3 text-center">
-                                    <img src="../fotos/logo-home-master-store.png" alt="" class="mx-auto" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="mb-3">
                         <asp:TextBox ID="txtNomAsignatura" class="form-control" placeholder="Escribe Nombre Asignatura" runat="server"></asp:TextBox>
                     </div>
@@ -65,17 +57,11 @@
             <div id="popup2" class="popup">
                 <div class="popup-content">
                     <span class="close" onclick="cerrarPopup2()">&times;</span>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3 text-center">
-                                    <img src="../fotos/logo-home-master-store.png" alt="" class="mx-auto" />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="mb-3">
-                        <asp:DropDownList ID="DropListAsignatura" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropListAsignatura_SelectedIndexChanged"></asp:DropDownList>
+                        <asp:DropDownList ID="DropListAsignatura" runat="server" OnSelectedIndexChanged="DropListAsignatura_SelectedIndexChanged"></asp:DropDownList>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <asp:Button ID="btnSeleccionar" runat="server" Text="seleccionar Asignatura" OnClick="btnSeleccionar_Click" />
                     </div>
                     <div class="mb-3">
                         <asp:TextBox ID="txtEditNomb" class="form-control" placeholder="Escribe Nombre Asignatura" runat="server"></asp:TextBox>

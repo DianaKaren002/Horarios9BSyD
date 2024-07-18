@@ -52,23 +52,6 @@ namespace Horarios
 
         protected void DropListAsignatura_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string Nombre = DropListAsignatura.SelectedValue;
-            Asignatura regreso = asig.ObtenerAsignaturaPorNombre(Nombre);
-
-            if (regreso != null)
-            {
-                txtEditNomb.Text = regreso.NomAsignatura;
-                txtEditDesc.Text = regreso.DescripcionAsig;
-                txtEditHora.Value = regreso.HrsxSemana.ToString();
-                txtEditCuatri.Value = regreso.Cuatrimestre.ToString();
-            }
-            else
-            {
-                txtEditNomb.Text = "";
-                txtEditDesc.Text = "";
-                txtEditHora.Value = "";
-                txtEditCuatri.Value = "";
-            }
             
         }
 
@@ -91,6 +74,26 @@ namespace Horarios
 
             GridAsignaturas.DataSource = asig.MostrarAsignaturas();
             GridAsignaturas.DataBind();
+        }
+
+        protected void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            Asignatura regreso = asig.ObtenerAsignaturaPorNombre(DropListAsignatura.SelectedValue);
+
+            if (regreso != null)
+            {
+                txtEditNomb.Text = regreso.NomAsignatura;
+                txtEditDesc.Text = regreso.DescripcionAsig;
+                txtEditHora.Value = regreso.HrsxSemana.ToString();
+                txtEditCuatri.Value = regreso.Cuatrimestre.ToString();
+            }
+            else
+            {
+                txtEditNomb.Text = "";
+                txtEditDesc.Text = "";
+                txtEditHora.Value = "";
+                txtEditCuatri.Value = "";
+            }
         }
     }
 }
