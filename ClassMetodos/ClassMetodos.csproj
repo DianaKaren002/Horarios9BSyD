@@ -83,6 +83,7 @@
     <Compile Include="AsignaturasGestion.cs" />
     <Compile Include="DivisionGestion.cs" />
     <Compile Include="DocentesGestion.cs" />
+    <Compile Include="EdificiosGestion.cs" />
     <Compile Include="GradoEspGestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

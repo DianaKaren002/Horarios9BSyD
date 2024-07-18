@@ -58,6 +58,14 @@ namespace ClassMetodos
         {
             return objBLL.EjecutaSqlResultados("select NombreDivision from divisiones");
         }
+        public int IdDivisiones(string NomDiv)
+        {
+            return Convert.ToInt32(objBLL.ObtenerUnicoResultado($"select Id_Division from divisiones where NombreDivision = '{NomDiv}'"));
+        }
+        public string ObtenerNombreXid(int id)
+        {
+            return objBLL.ObtenerUnicoResultado($"select NombreDivision from divisiones where Id_Division = '{id}'");
+        }
         public Divisiones ObtenerDivisionesPorNombre(string nombreDivision)
         {
             Divisiones divis = null;
