@@ -147,5 +147,50 @@ namespace ClassBLLHorariosMySQL
 
             return resultado;
         }
+        public DataSet ConsultaTablaConParametros(string insSql, params MySqlParameter[] parametros)
+        {
+            DataSet contenedor = new DataSet();
+            try
+            {
+                using (MySqlConnection conexion = new MySqlConnection(cad))
+                {
+                    MySqlCommand comando = new MySqlCommand(insSql, conexion);
+                    comando.Parameters.AddRange(parametros);
+                    MySqlDataAdapter da = new MySqlDataAdapter(comando);
+                    da.Fill(contenedor);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al consultar la tabla: " + ex.Message);
+            }
+
+            return contenedor;
+        }
+
+        public DataSet ConsultaTabla2(string insSql)
+        {
+            DataSet contenedor = new DataSet();
+            try
+            {
+                Conexion = new MySqlConnection(cad);
+                MySqlDataAdapter DA = new MySqlDataAdapter(insSql, Conexion);
+                DA.Fill(contenedor);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al consultar la tabla: " + ex.Message);
+            }
+            finally
+            {
+                if (Conexion != null && Conexion.State == ConnectionState.Open)
+                {
+                    Conexion.Close();
+                    Conexion.Dispose();
+                }
+            }
+            return contenedor;
+        }
+
     }
 }
