@@ -49,7 +49,7 @@
             <div class="mb-3">
                 <asp:DropDownList ID="DropListEdificio" runat="server"></asp:DropDownList>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="btnSeleccionar" runat="server" Text="seleccionar Edificio" OnClick="btnSeleccionar_Click" />
+                <asp:Button ID="btnSeleccionar" runat="server" Text="seleccionar Edificio" OnClick="btnSeleccionar_Click" />
             </div>
             <div class="mb-3">
                 <asp:TextBox ID="txtEditNombreEdif" class="form-control" placeholder="Escribe Nombre del Edificio" runat="server"></asp:TextBox>

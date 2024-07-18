@@ -58,6 +58,14 @@ namespace ClassMetodos
         {
             return objBLL.EjecutaSqlResultados("select grado from gradosespecialidad");
         }
+        public int IdGrados(string nomgrado)
+        {
+            return Convert.ToInt32(objBLL.ObtenerUnicoResultado($"select idgradosespecialidad from gradosespecialidad where grado = '{nomgrado}'"));
+        }
+        public string ObtenerNombreGradoXid(int id)
+        {
+            return objBLL.ObtenerUnicoResultado($"select grado from gradosespecialidad where idgradosespecialidad = '{id}'");
+        }
         public GradosEspecialidad ObtenerGradosPorNombre(string nombreGrados)
         {
             GradosEspecialidad gradEsp = null;

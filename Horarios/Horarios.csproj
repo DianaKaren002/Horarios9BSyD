@@ -107,6 +107,7 @@
     <Content Include="Division.aspx" />
     <Content Include="Docente.aspx" />
     <Content Include="Edificio.aspx" />
+    <Content Include="Especialidad.aspx" />
     <Content Include="GradoEsp.aspx" />
     <Content Include="scrips\popup.js" />
     <Content Include="Web.config" />
@@ -140,6 +141,13 @@
     </Compile>
     <Compile Include="Edificio.aspx.designer.cs">
       <DependentUpon>Edificio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Especialidad.aspx.cs">
+      <DependentUpon>Especialidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Especialidad.aspx.designer.cs">
+      <DependentUpon>Especialidad.aspx</DependentUpon>
     </Compile>
     <Compile Include="GradoEsp.aspx.cs">
       <DependentUpon>GradoEsp.aspx</DependentUpon>
