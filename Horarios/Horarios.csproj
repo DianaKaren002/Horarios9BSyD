@@ -110,6 +110,7 @@
     <Content Include="Edificio.aspx" />
     <Content Include="Especialidad.aspx" />
     <Content Include="GradoEsp.aspx" />
+    <Content Include="GrupoVis.aspx" />
     <Content Include="Periodo.aspx" />
     <Content Include="scrips\popup.js" />
     <Content Include="Web.config" />
@@ -164,6 +165,13 @@
     </Compile>
     <Compile Include="GradoEsp.aspx.designer.cs">
       <DependentUpon>GradoEsp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GrupoVis.aspx.cs">
+      <DependentUpon>GrupoVis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GrupoVis.aspx.designer.cs">
+      <DependentUpon>GrupoVis.aspx</DependentUpon>
     </Compile>
     <Compile Include="Periodo.aspx.cs">
       <DependentUpon>Periodo.aspx</DependentUpon>

@@ -59,6 +59,14 @@ namespace ClassMetodos
         {
             return objBLL.EjecutaSqlResultados("select NombreEsp from especialidades");
         }
+        public int DevuelveIDEsp(string NomEsp)
+        {
+            return Convert.ToInt32(objBLL.ObtenerUnicoResultado($"select idEspecialidad from especialidades where NombreEsp = '{NomEsp}'"));
+        }
+        public string ObtenerNombreEspecialidadXid(int id)
+        {
+            return objBLL.ObtenerUnicoResultado($"select NombreEsp from especialidades where idEspecialidad = '{id}'");
+        }
         public Especialidades ObtenerespecialidadPorNombre(string nombreEspecial)
         {
             Especialidades esp = null;

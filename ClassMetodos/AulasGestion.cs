@@ -58,6 +58,14 @@ namespace ClassMetodos
         {
             return objBLL.EjecutaSqlResultados("select NombAula from aulas");
         }
+        public int DevuelveIDAula(string nomAu)
+        {
+            return Convert.ToInt32(objBLL.ObtenerUnicoResultado($"select idAula from aulas where NombAula = '{nomAu}'"));
+        }
+        public string ObtenerNombreAulaXid(int id)
+        {
+            return objBLL.ObtenerUnicoResultado($"select NombAula from aulas where idAula = '{id}'");
+        }
         public Aulas ObtenerAulasPorNombre(string nombreAu)
         {
             Aulas esp = null;
