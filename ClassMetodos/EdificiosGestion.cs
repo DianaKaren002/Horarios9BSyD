@@ -58,6 +58,14 @@ namespace ClassMetodos
         {
             return objBLL.EjecutaSqlResultados("select NombreEdificio from edificios");
         }
+        public int IdEdificios(string Nomedif)
+        {
+            return Convert.ToInt32(objBLL.ObtenerUnicoResultado($"select idEdificio from edificios where NombreEdificio = '{Nomedif}'"));
+        }
+        public string ObtenerNombreEdifXid(int id)
+        {
+            return objBLL.ObtenerUnicoResultado($"select NombreEdificio from edificios where idEdificio = '{id}'");
+        }
         public Edificios ObteneredificiosPorNombre(string nombreEdificio)
         {
             Edificios edif = null;
