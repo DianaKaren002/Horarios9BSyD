@@ -36,4 +36,23 @@
     background-color: white;
     border-bottom: 2px solid #057d35; /* Agregar borde inferior verde */
 }
+.button-n {
+    background-color: #057d35;
+    color: white;
+    width: 128px;
+    height: 44px;
+    font-size: 20px;
+    font-weight: 400;
+    border-radius: 10px;
+    border: 2px solid #057d35; /* Añadir borde del mismo color verde */
+    transition: background-color 0.3s, color 0.3s; /* Suave transición para los cambios de color */
+}
+
+    .button-n:hover,
+    .button-n:focus {
+        background-color: white;
+        color: #057d35;
+        /* Asegurar que el borde sigue siendo verde */
+    }
+
 

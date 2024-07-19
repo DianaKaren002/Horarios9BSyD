@@ -53,7 +53,7 @@
                 </div>
                 <div class="field">
                     <div class="control">
-                        <asp:Button ID="btnConectarBD" runat="server" CssClass="button is-rounded" Text="Conectar" OnClick="btnConectarBD_Click" />
+                        <asp:Button ID="btnConectarBD" runat="server" CssClass="button-n is-rounded" Text="Conectar" OnClick="btnConectarBD_Click" />
                     </div>
                 </div>
                 <div class="columns ">
