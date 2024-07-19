@@ -48,8 +48,9 @@
             <div class="field">
                 <div class="control">
                     <asp:Button ID="btnAbrirPopup" runat="server" CssClass="button-Pg is-rounded" Text="Agregar Grupos" OnClientClick="mostrarPopup(); return false;" />
-                </div>
-                <div>
+               </div>
+ </div>
+<div>
                     <h2 class="titles">Lista Grupos::</h2>
 
                     <div style="justify-content: center; display: flex;">
@@ -142,7 +143,7 @@
                     </div>
                           </section>
                 </div>
-        </section>
+                 </section>
     </form>
     <script src="scrips/popup.js"></script>
 </body>

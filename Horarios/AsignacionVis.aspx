@@ -43,11 +43,14 @@
         </div>
     </div>
 </nav>
-            <h2>Gestion de Asignaciones cuatrimestrales</h2>
-    <div class="mb-3">
+     <section class="container">
+     <h2 class="title_utp">Asignaciones</h2>
+     <div class="field">
+    <div class="control">
         <asp:Button ID="btnAbrirPopup" runat="server" Text="Agregar Asignaciones" OnClientClick="mostrarPopup(); return false;" />
-    </div>
-    <div>
+   </div>
+ </div>
+<div>
         Lista Asignaciones:
 <div style="justify-content: center; display: flex;">
     <asp:GridView ID="GridAsignaciones" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridAsignaciones_SelectedIndexChanged">
@@ -100,6 +103,7 @@
             <asp:Button ID="btnEditarAsignacion" runat="server" Text="Editar" CssClass="btn-outline-warning btn-3" OnClick="btnEditarAsignacion_Click" />
         </div>
     </div>
+         </section>
     </form>
     <script src="scrips/popup.js"></script>
 </body>

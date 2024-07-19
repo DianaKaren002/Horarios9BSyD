@@ -43,11 +43,16 @@
     </div>
 </nav>
     <form id="form1" runat="server">
-        <h2>Gestion de Grados Especialidad</h2>
-        <div class="mb-3">
-            <asp:Button ID="btnAbrirPopup" runat="server" Text="Agregar Grados" OnClientClick="mostrarPopup(); return false;" />
+         <section class="container">
+       <h2 class="title_utp">Gestion de Grados Especialidad</h2>
+     <div class="field">
+    <div class="control">
+            <asp:Button ID="btnAbrirPopup" runat="server" CssClass="button-Pg is-rounded" Text="Agregar Grados" OnClientClick="mostrarPopup(); return false;" />
         </div>
-        <div>
+ </div>
+<div>
+
+             <h2 class="titles"> Editar informacion Grado especialidad:</h2>
             Lista Grados Especialidad:
     <div style="justify-content: center; display: flex;">
         <asp:GridView ID="GridGradsEsp" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridGradsEsp_SelectedIndexChanged" >
@@ -69,16 +74,18 @@
                         <asp:TextBox ID="txtExtra" class="form-control" placeholder="extra p.e. 2012" runat="server"></asp:TextBox>
                     </div>
                     <div class="mb-3">
-                        <asp:Button ID="btnRegistrarGrado" runat="server" Text="Registrar Grado" CssClass="btn-outline-warning btn-3" OnClick="btnRegistrarGrado_Click" />
+                        <asp:Button ID="btnRegistrarGrado" runat="server" CssClass="button-Pg is-rounded" Text="Registrar Grado"  OnClick="btnRegistrarGrado_Click" />
                     </div>
                     <asp:Label ID="lbRespuesta" runat="server" Text=""></asp:Label>
                 </div>
             </div>
-            Editar informacion Grado especialidad:
+
+             <h2 class="titles"> Editar informacion Grado especialidad:</h2>
+           
     <div class="mb-3">
         <asp:DropDownList ID="DropListGrados" runat="server" ></asp:DropDownList>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnSeleccionar" runat="server" Text="seleccionar grado" OnClick="btnSeleccionar_Click" />
+        <asp:Button ID="btnSeleccionar" runat="server" CssClass="button-Pg is-rounded" Text="seleccionar grado" OnClick="btnSeleccionar_Click" />
     </div>
             <div class="mb-3">
                 <asp:TextBox ID="txtEditNombGrado" class="form-control" placeholder="Escribe Nombre del grado" runat="server"></asp:TextBox>
@@ -87,10 +94,12 @@
                 <asp:TextBox ID="txtEditExtra" class="form-control" placeholder="Extra" runat="server"></asp:TextBox>
             </div>
             <div class="mb-3">
-                <asp:Button ID="btnEditarGrado" runat="server" Text="Editar Grado" CssClass="btn-outline-warning btn-3" OnClick="btnEditarGrado_Click" />
+                <asp:Button ID="btnEditarGrado" runat="server" CssClass="button-Pg is-rounded" Text="Editar Grado"  OnClick="btnEditarGrado_Click" />
             </div>
         </div>
+             </section>
     </form>
+
     <script src="scrips/popup.js"></script>
 </body>
 </html>

@@ -43,12 +43,16 @@
         </div>
     </div>
 </nav>
-        <h2>Gestion de Horarios</h2>
-        <div class="mb-3">
-            <asp:Button ID="btnAbrirPopup" runat="server" Text="Agregar Horario" OnClientClick="mostrarPopup(); return false;" />
+         <section class="container">
+     <h2 class="title_utp">Gestion de Horarios</h2>
+     <div class="field">
+    <div class="control">
+            <asp:Button ID="btnAbrirPopup" runat="server" CssClass="button-Pg is-rounded" Text="Agregar Horario" OnClientClick="mostrarPopup(); return false;" />
         </div>
+         </div>
         <div>
-            Lista Horarios:
+               <h2 class="titles"> Lista Horarios:</h2>
+           
             <div style="justify-content: center; display: flex;">
                 <asp:GridView ID="GridHorarios" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridHorarios_SelectedIndexChanged">
                     <Columns>
@@ -86,16 +90,17 @@
                         <asp:DropDownList ID="DropListAulaID" runat="server"></asp:DropDownList>
                     </div>
                     <div class="mb-3">
-                        <asp:Button ID="btnRegistrarHorario" runat="server" Text="Registrar " CssClass="btn-outline-warning btn-3" OnClick="btnRegistrarHorario_Click" />
+                        <asp:Button ID="btnRegistrarHorario" runat="server" CssClass="button-Pg is-rounded" Text="Registrar " OnClick="btnRegistrarHorario_Click" />
                     </div>
                     <asp:Label ID="lbRespuesta" runat="server" Text=""></asp:Label>
                 </div>
             </div>
-            Editar informacion Horario:
-            <div class="mb-3">
+
+             <h2 class="titles">Editar informacion Horario:</h2>
+             <div class="mb-3">
                 <asp:DropDownList ID="DropListIdHorario" runat="server"></asp:DropDownList>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="btnSeleccionar" runat="server" Text="seleccionar Edificio" />
+    <asp:Button ID="btnSeleccionar" runat="server" CssClass="button-Pg is-rounded" Text="seleccionar Edificio" />
             </div>
             <div class="mb-3">
                 <asp:DropDownList ID="DropListEditAsigId" runat="server"></asp:DropDownList>
@@ -113,9 +118,10 @@
                 <asp:DropDownList ID="DropListEditAula" runat="server"></asp:DropDownList>
             </div>
             <div class="mb-3">
-                <asp:Button ID="btnEditarHorario" runat="server" Text="Editar" CssClass="btn-outline-warning btn-3" />
+                <asp:Button ID="btnEditarHorario" runat="server" CssClass="button-Pg is-rounded" Text="Editar" />
             </div>
         </div>
+   </section>
     </form>
 </body>
 </html>

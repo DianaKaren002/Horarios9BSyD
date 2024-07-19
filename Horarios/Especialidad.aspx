@@ -43,11 +43,14 @@
         </div>
     </div>
 </nav>
-        <h2>Gestion de Especialidades</h2>
-        <div class="mb-3">
+         <section class="container">
+     <h2 class="title_utp">Gestion de Especialidades</h2>
+     <div class="field">
+    <div class="control">
             <asp:Button ID="btnAbrirPopup" runat="server" Text="Agregar Especialidades" OnClientClick="mostrarPopup(); return false;" />
         </div>
-        <div>
+ </div>
+<div>
             Lista Especialidades:
         <div style="justify-content: center; display: flex;">
             <asp:GridView ID="GridEspecialidades" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridEspecialidades_SelectedIndexChanged">
@@ -108,6 +111,7 @@
                 <asp:Button ID="btnEditarEsp" runat="server" Text="Editar" CssClass="btn-outline-warning btn-3" OnClick="btnEditarEsp_Click" />
             </div>
         </div>
+         </section>
     </form>
     <script src="scrips/popup.js"></script>
 </body>

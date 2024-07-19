@@ -43,11 +43,15 @@
     </div>
 </nav>
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <div>
-            <h2>Gestion de asignaturas</h2>
-            <div class="mb-3">
+           
+             <section class="container">
+     <h2 class="title_utp">Gestion de asignaturas</h2>
+     <div class="field">
+    <div class="control">
                 <asp:Button ID="btnAbrirPopup" runat="server" Text="Agregar Asignatura" OnClientClick="mostrarPopup(); return false;" />
-            </div>
+           </div>
+ </div>
+<div>
             <div class="mb-3">
                 <asp:Button ID="btnEditar" runat="server" Text="Editar Asignatura" CssClass="btn-outline-warning btn-3" OnClientClick="mostrarPopup2(); return false;" />
             </div>
@@ -114,6 +118,7 @@
                 </div>
             </div>
         </div>
+                 </section>
     </form>
     <script src="scrips/popup.js"></script>
 
