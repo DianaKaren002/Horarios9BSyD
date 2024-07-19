@@ -114,6 +114,38 @@ namespace ClassBLLHorariosMySQL
 
             return resultados.ToArray();
         }
+        public int[] EjecutaSqlResultadosInt(string instruccionSql)
+        {
+            List<int> resultados = new List<int>();
+
+            try
+            {
+                using (MySqlConnection conexion = new MySqlConnection(cad))
+                {
+                    using (MySqlCommand comando = new MySqlCommand(instruccionSql, conexion))
+                    {
+                        conexion.Open();
+                        using (MySqlDataReader lector = comando.ExecuteReader())
+                        {
+                            if (lector.HasRows)
+                            {
+                                while (lector.Read())
+                                {
+                                    resultados.Add(lector.GetInt32(0));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al ejecutar la instrucción SQL: " + ex.Message);
+            }
+
+            return resultados.ToArray();
+        }
+
         public string ObtenerUnicoResultado(string instruccionsql)
         {
             string resultado = string.Empty;

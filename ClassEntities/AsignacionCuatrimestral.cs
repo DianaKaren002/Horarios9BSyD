@@ -9,6 +9,7 @@ namespace ClassEntities
     public class AsignacionCuatrimestral
     {
         public int idAsignacion { get; set; }
+        public int DocenteID { get; set; }
         public int GrupoID { get; set; }
         public int AsignaturaId { get; set; }
     }

@@ -6,6 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+    <link href="CSS/StyleSheetPopup.css" rel="stylesheet" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -103,5 +104,7 @@
             </div>
         </div>
     </form>
+    <script src="scrips/popup.js"></script>
 </body>
 </html>
+

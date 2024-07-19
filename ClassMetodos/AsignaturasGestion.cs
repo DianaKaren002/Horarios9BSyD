@@ -60,6 +60,10 @@ namespace ClassMetodos
         {
             return objBLL.EjecutaSqlResultados("select NomAsignatura from asignaturas");
         }
+        public int DevuelveIDAsignatura(string Nom)
+        {
+            return Convert.ToInt32(objBLL.ObtenerUnicoResultado($"select idasignatura from asignaturas where NomAsignatura = '{Nom}'"));
+        }
         public Asignatura ObtenerAsignaturaPorNombre(string nombreAsignatura)
         {
             Asignatura asignatura = null;
