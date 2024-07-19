@@ -1,0 +1,39 @@
+﻿.banner {
+    flex-wrap: wrap;
+    color: white;
+    height: 702px;
+    font-size: 20px;
+}
+
+.container {
+    padding: 2rem 2rem;
+}
+
+.level-item img {
+    display: block;
+    margin: auto;
+}
+
+.cast img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+}
+
+.container {
+    text-align: center;
+}
+
+.title_utp {
+    text-align: center;
+    color: black;
+    font: 700 42px 'Inter', sans-serif;
+    padding:10px;
+}
+.navbar.is-primary {
+    background-color: white;
+    border-bottom: 2px solid #057d35; /* Agregar borde inferior verde */
+}
+

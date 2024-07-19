@@ -106,6 +106,7 @@
     <Content Include="Asignaturas.aspx" />
     <Content Include="Aula.aspx" />
     <Content Include="CSS\StyleSheetPopup.css" />
+    <Content Include="CSS\txtyBtn.css" />
     <Content Include="Division.aspx" />
     <Content Include="Docente.aspx" />
     <Content Include="Edificio.aspx" />
@@ -113,6 +114,9 @@
     <Content Include="GradoEsp.aspx" />
     <Content Include="GrupoVis.aspx" />
     <Content Include="HorarioVis.aspx" />
+    <Content Include="CSS\Navar.css" />
+    <Content Include="Img\castor.png" />
+    <Content Include="Img\logo_utp.png" />
     <Content Include="Periodo.aspx" />
     <Content Include="scrips\popup.js" />
     <Content Include="Web.config" />
