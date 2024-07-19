@@ -11,7 +11,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-       <h2>Horarios UTP</h2>
+       <h2>Horarios UTP no ma</h2>
         <div>
           <asp:Button ID="btnConectarBD" runat="server" Text="Conectar" OnClick="btnConectarBD_Click" />
 
