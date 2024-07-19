@@ -1,4 +1,5 @@
-﻿using ClassMetodos;
+﻿using ClassEntities;
+using ClassMetodos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -69,6 +70,24 @@ namespace Horarios
             int NumRenglon = GridHorarios.SelectedIndex;
             int NumId = Convert.ToInt32(GridHorarios.Rows[NumRenglon].Cells[0].Text);
             hor.Bajas(NumId);
+            GridHorarios.DataSource = hor.MostrarHorario();
+            GridHorarios.DataBind();
+        }
+
+        protected void btnRegistrarHorario_Click(object sender, EventArgs e)
+        {
+            int dId = Convert.ToInt32(di.DevuelveIDDia(DropListDiaID.SelectedValue));
+            int auID = Convert.ToInt32(au.DevuelveIDAula(DropListAulaID.SelectedValue));
+            Horario Nueva = new Horario
+            {
+                AsignacionID = Convert.ToInt32(DropListAsignacionId.SelectedValue),
+                DiaID = dId,
+                HrInicio = Convert.ToInt32(txtHrInicio.Value),
+                HrFinal = Convert.ToInt32(txtHrFin.Value),
+                AulaID = auID
+            };
+
+            lbRespuesta.Text = hor.InsertarHorario(Nueva);
             GridHorarios.DataSource = hor.MostrarHorario();
             GridHorarios.DataBind();
         }

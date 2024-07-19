@@ -52,7 +52,7 @@
                         <asp:DropDownList ID="DropListAulaID" runat="server"></asp:DropDownList>
                     </div>
                     <div class="mb-3">
-                        <asp:Button ID="btnRegistrarHorario" runat="server" Text="Registrar " CssClass="btn-outline-warning btn-3" />
+                        <asp:Button ID="btnRegistrarHorario" runat="server" Text="Registrar " CssClass="btn-outline-warning btn-3" OnClick="btnRegistrarHorario_Click" />
                     </div>
                     <asp:Label ID="lbRespuesta" runat="server" Text=""></asp:Label>
                 </div>
