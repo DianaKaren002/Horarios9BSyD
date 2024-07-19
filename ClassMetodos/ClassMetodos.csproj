@@ -90,6 +90,7 @@
     <Compile Include="GradoEspGestion.cs" />
     <Compile Include="GruposGestion.cs" />
     <Compile Include="AsignacionCuatriGestion.cs" />
+    <Compile Include="HorarioGestion.cs" />
     <Compile Include="PeriodosGestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
