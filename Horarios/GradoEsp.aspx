@@ -5,10 +5,43 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-    <link href="CSS/StyleSheetPopup.css" rel="stylesheet" />
+    <title>Grado</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" />
+ <link href="CSS/Navar.css" rel="stylesheet" />
+ <link href="CSS/txtyBtn.css" rel="stylesheet" />
 </head>
 <body>
+    <nav class="container navbar is-primary">
+    <div class="navbar-brand">
+        <div class="level">
+            <div class="level-item has-text-centered">
+                <figure class="image is-128x128">
+                    <img class="small-image" src="Img/logo_utp.png" alt="img_utp" />
+                </figure>
+            </div>
+            <span class="navbar-burger" data-target="navbarMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
+        </div>
+        <div id="navbarMenu" class="navbar-menu ">
+            <div class="navbar-item ">
+                <a class="navbar-item " href="WebForm1.aspx">Inicio</a>
+                <a class="navbar-item " href="Periodo.aspx">Periodo</a>
+                <a class="navbar-item" href="GrupoVis.aspx">Grupo</a>
+                <a class="navbar-item" href="GradoEsp.aspx">Grado</a>
+                <a class="navbar-item" href="Especialidad.aspx">Especialidad</a>
+                <a class="navbar-item" href="Edificio.aspx">Edificio</a>
+                <a class="navbar-item" href="Docente.aspx">Docente</a>
+                <a class="navbar-item" href="Division.aspx">Division</a>
+                <a class="navbar-item" href="Asignaturas.aspx">Asignaturas</a>
+                <a class="navbar-item" href="Aula.aspx">Aula</a>
+                <a class="navbar-item" href="HorarioVis.aspx">Horarios</a>
+            </div>
+        </div>
+    </div>
+</nav>
     <form id="form1" runat="server">
         <h2>Gestion de Grados Especialidad</h2>
         <div class="mb-3">
