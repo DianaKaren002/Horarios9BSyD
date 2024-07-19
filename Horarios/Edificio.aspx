@@ -39,6 +39,7 @@
                 <a class="navbar-item" href="Asignaturas.aspx">Asignaturas</a>
                 <a class="navbar-item" href="Aula.aspx">Aula</a>
                 <a class="navbar-item" href="HorarioVis.aspx">Horarios</a>
+                 <a class="navbar-item" href="AsignacionVis.aspx">Asignacion</a>
             </div>
         </div>
     </div>
@@ -47,7 +48,7 @@
      <h2 class="title_utp">Gestion de Edificios</h2>
      <div class="field">
     <div class="control">
-            <asp:Button ID="btnAbrirPopup" runat="server" Text="Agregar Edificios" OnClientClick="mostrarPopup(); return false;" />
+            <asp:Button ID="btnAbrirPopup" runat="server" CssClass="button-Pg is-rounded" Text="Agregar Edificios" OnClientClick="mostrarPopup(); return false;" />
        </div>
  </div>
 <div>
@@ -76,7 +77,7 @@
                         <asp:DropDownList ID="DropListDivisionId" runat="server"></asp:DropDownList>
                     </div>
                     <div class="mb-3">
-                        <asp:Button ID="btnRegistrarEdificio" runat="server" Text="Registrar edificio" CssClass="btn-outline-warning btn-3" OnClick="btnRegistrarEdificio_Click" />
+                        <asp:Button ID="btnRegistrarEdificio" runat="server" CssClass="button-Pg is-rounded" Text="Registrar edificio"  OnClick="btnRegistrarEdificio_Click" />
                     </div>
                     <asp:Label ID="lbRespuesta" runat="server" Text=""></asp:Label>
                 </div>
@@ -85,7 +86,7 @@
             <div class="mb-3">
                 <asp:DropDownList ID="DropListEdificio" runat="server"></asp:DropDownList>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnSeleccionar" runat="server" Text="seleccionar Edificio" OnClick="btnSeleccionar_Click" />
+                <asp:Button ID="btnSeleccionar" runat="server" CssClass="button-Pg is-rounded" Text="seleccionar Edificio" OnClick="btnSeleccionar_Click" />
             </div>
             <div class="mb-3">
                 <asp:TextBox ID="txtEditNombreEdif" class="form-control" placeholder="Escribe Nombre del Edificio" runat="server"></asp:TextBox>
@@ -99,7 +100,7 @@
                     <br />
                     <asp:DropDownList ID="DropListEditDivisionId" runat="server"></asp:DropDownList>
                 </div>
-                <asp:Button ID="btnEditarEdif" runat="server" Text="Editar" CssClass="btn-outline-warning btn-3" OnClick="btnEditarEdif_Click" />
+                <asp:Button ID="btnEditarEdif" runat="server" CssClass="button-Pg is-rounded" Text="Editar" OnClick="btnEditarEdif_Click" />
             </div>
         </div>
          </section>

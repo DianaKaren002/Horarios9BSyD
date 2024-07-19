@@ -38,6 +38,7 @@
                 <a class="navbar-item" href="Asignaturas.aspx">Asignaturas</a>
                 <a class="navbar-item" href="Aula.aspx">Aula</a>
                 <a class="navbar-item" href="HorarioVis.aspx">Horarios</a>
+                 <a class="navbar-item" href="AsignacionVis.aspx">Asignacion</a>
             </div>
         </div>
     </div>
@@ -48,12 +49,12 @@
      <h2 class="title_utp">Gestion de asignaturas</h2>
      <div class="field">
     <div class="control">
-                <asp:Button ID="btnAbrirPopup" runat="server" Text="Agregar Asignatura" OnClientClick="mostrarPopup(); return false;" />
+                <asp:Button ID="btnAbrirPopup" runat="server" CssClass="button-Pg is-rounded" Text="Agregar Asignatura" OnClientClick="mostrarPopup(); return false;" />
            </div>
  </div>
 <div>
             <div class="mb-3">
-                <asp:Button ID="btnEditar" runat="server" Text="Editar Asignatura" CssClass="btn-outline-warning btn-3" OnClientClick="mostrarPopup2(); return false;" />
+                <asp:Button ID="btnEditar" runat="server" CssClass="button-Pg is-rounded" Text="Editar Asignatura"  OnClientClick="mostrarPopup2(); return false;" />
             </div>
             Mostrar Areas existentes:
             <div style="justify-content: center; display: flex;">
@@ -86,7 +87,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <asp:Button ID="btnInsertarAsignatura" runat="server" Text="Insertar Asignatura" CssClass="btn-outline-warning btn-3" OnClick="btnInsertarAsignatura_Click" />
+                        <asp:Button ID="btnInsertarAsignatura" runat="server" CssClass="button-Pg is-rounded" Text="Insertar Asignatura"  OnClick="btnInsertarAsignatura_Click" />
                     </div>
                     <asp:Label ID="lbRespuesta" runat="server" Text=""></asp:Label>
                 </div>
@@ -98,7 +99,7 @@
                     <div class="mb-3">
                         <asp:DropDownList ID="DropListAsignatura" runat="server" OnSelectedIndexChanged="DropListAsignatura_SelectedIndexChanged"></asp:DropDownList>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnSeleccionar" runat="server" Text="seleccionar Asignatura" OnClick="btnSeleccionar_Click" />
+                        <asp:Button ID="btnSeleccionar" runat="server" CssClass="button-Pg is-rounded" Text="seleccionar Asignatura" OnClick="btnSeleccionar_Click" />
                     </div>
                     <div class="mb-3">
                         <asp:TextBox ID="txtEditNomb" class="form-control" placeholder="Escribe Nombre Asignatura" runat="server"></asp:TextBox>
@@ -113,7 +114,7 @@
                         <input type="number" id="txtEditCuatri" class="form-control" placeholder="Cuatrimestre p.e:5" runat="server" />
                     </div>
                     <div class="mb-3">
-                        <asp:Button ID="btnEditarAsig" runat="server" Text="Editar Asignatura" CssClass="btn-outline-warning btn-3" OnClick="btnEditarAsig_Click" />
+                        <asp:Button ID="btnEditarAsig" runat="server" CssClass="button-Pg is-rounded" Text="Editar Asignatura" OnClick="btnEditarAsig_Click" />
                     </div>
                 </div>
             </div>

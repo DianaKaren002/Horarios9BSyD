@@ -39,6 +39,7 @@
                 <a class="navbar-item" href="Asignaturas.aspx">Asignaturas</a>
                 <a class="navbar-item" href="Aula.aspx">Aula</a>
                 <a class="navbar-item" href="HorarioVis.aspx">Horarios</a>
+                 <a class="navbar-item" href="AsignacionVis.aspx">Asignacion</a>
             </div>
         </div>
     </div>
@@ -47,7 +48,7 @@
      <h2 class="title_utp">Gestion de Docentes</h2>
      <div class="field">
     <div class="control">
-            <asp:Button ID="btnAbrirPopup" runat="server" Text="Agregar Docente" OnClientClick="mostrarPopup(); return false;" />
+            <asp:Button ID="btnAbrirPopup" runat="server" CssClass="button-Pg is-rounded" Text="Agregar Docente" OnClientClick="mostrarPopup(); return false;" />
        </div>
  </div>
 <div>
@@ -81,7 +82,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <asp:Button ID="btnRegistrarDocente" runat="server" Text="Registrar" CssClass="btn-outline-warning btn-3" OnClick="btnRegistrarDocente_Click" />
+                        <asp:Button ID="btnRegistrarDocente" runat="server" CssClass="button-Pg is-rounded" Text="Registrar"  OnClick="btnRegistrarDocente_Click" />
                     </div>
                     <asp:Label ID="lbRespuesta" runat="server" Text=""></asp:Label>
                 </div>
@@ -103,7 +104,7 @@
                 <asp:TextBox ID="txtEditExtra" class="form-control" placeholder="Extra" runat="server"></asp:TextBox>
             </div>
             <div class="mb-3">
-                <asp:Button ID="btnEditarDocente" runat="server" Text="Editar" CssClass="btn-outline-warning btn-3" OnClick="btnEditarDocente_Click" />
+                <asp:Button ID="btnEditarDocente" runat="server" CssClass="button-Pg is-rounded" Text="Editar" OnClick="btnEditarDocente_Click" />
             </div>
         </div>
          </section>
