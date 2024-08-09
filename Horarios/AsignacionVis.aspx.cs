@@ -132,10 +132,9 @@ namespace Horarios
             int PeriIni1 = PeriIni+1;
             int IdDoc1 = IdDoc+1;
             Label1.Text = $"Docente :{IdDoc1} {PeriIni1}  {PeriFin1}";
-
+            
             GridAsignaciones.DataSource = acua.MostrarXPeriodoYProfesor(PeriIni1,PeriFin1,IdDoc1);
             GridAsignaciones.DataBind();
-            
         }
     }
 }

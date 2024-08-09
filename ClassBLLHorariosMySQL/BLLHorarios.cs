@@ -69,9 +69,10 @@ namespace ClassBLLHorariosMySQL
 
                     using (MySqlCommand command = new MySqlCommand(instSql, connection))
                     {
-                        command.Parameters.AddWithValue("@perini", IdIni);
-                        command.Parameters.AddWithValue("@perfin", IdFin);
-                        command.Parameters.AddWithValue("@idprof", IdDocente);
+                        // Usa Add para evitar problemas con tipos de datos
+                        command.Parameters.Add("@perini", MySqlDbType.Int32).Value = IdIni;
+                        command.Parameters.Add("@perfin", MySqlDbType.Int32).Value = IdFin;
+                        command.Parameters.Add("@idprof", MySqlDbType.Int32).Value = IdDocente;
 
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
                         {
@@ -79,6 +80,11 @@ namespace ClassBLLHorariosMySQL
                         }
                     }
                 }
+
+                // Depuración: Imprimir la consulta final y los parámetros
+                Console.WriteLine("Consulta SQL:");
+                Console.WriteLine(instSql);
+                Console.WriteLine($"Parámetros: perini = {IdIni}, perfin = {IdFin}, idprof = {IdDocente}");
             }
             catch (MySqlException ex)
             {
