@@ -17,7 +17,7 @@ namespace ClassMetodos
 
         public DataTable MostrarHorario()
         {
-            string instSql = "SELECT h.idHorario, di.NomDia, h.HrInicio, h.HrFinal, asig.idAsignacion, g.NomGrupo, g.Cuatrimestre, g.Turno, p.NombrePeriodo, au.NombAula, "+
+            string instSql = "SELECT h.idHorario, di.NomDia, h.HrInicio, h.HrFinal, asig.idAsignacion,a.NomAsignatura, g.NomGrupo, g.Cuatrimestre, g.Turno, p.NombrePeriodo,p.P_inicio, p.P_Fin, au.NombAula, " +
                           "d.Nombre FROM asignacioncuatrimestral asig INNER JOIN grupos g ON asig.GrupoID = g.Idgrupo INNER JOIN docentes d On d.idDocente = asig.DocenteID "+
                           "INNER JOIN asignaturas a On a.idasignatura = asig.AsignaturaID "+
                           "INNER JOIN periodos p ON p.idPeriodo = g.PeriodoID INNER JOIN horario h ON h.AsignacionID = asig.idAsignacion INNER JOIN diasemana di ON di.iddia = h.DiaID "+

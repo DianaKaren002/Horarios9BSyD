@@ -62,10 +62,13 @@
                         <asp:BoundField DataField="HrInicio" HeaderText="Inicio" />
                         <asp:BoundField DataField="HrFinal" HeaderText="Final" />
                         <asp:BoundField DataField="idAsignacion" HeaderText="Asignacion" />
+                        <asp:BoundField DataField="NomAsignatura" HeaderText="Materia" />
                         <asp:BoundField DataField="NomGrupo" HeaderText="Grupo" />
                         <asp:BoundField DataField="Cuatrimestre" HeaderText="Cuatrimestre" />
                         <asp:BoundField DataField="Turno" HeaderText="Turno" />
                         <asp:BoundField DataField="NombrePeriodo" HeaderText="Periodo" />
+                        <asp:BoundField DataField="P_inicio" HeaderText="Inicio" />
+                        <asp:BoundField DataField="P_Fin" HeaderText="Fin" />
                         <asp:BoundField DataField="NombAula" HeaderText="Aula" />
                         <asp:BoundField DataField="Nombre" HeaderText="Docente" />
                         <asp:CommandField HeaderText="Eliminar" SelectText="Borrar" ShowSelectButton="True" ItemStyle-CssClass="btnDelete" />

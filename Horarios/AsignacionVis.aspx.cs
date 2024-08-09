@@ -15,6 +15,7 @@ namespace Horarios
         DocentesGestion docs = new DocentesGestion();
         AsignaturasGestion asigna = new AsignaturasGestion();
         GruposGestion gru = new GruposGestion();
+        PeriodosGestion peri = new PeriodosGestion();
         protected void Page_Load(object sender, EventArgs e)
         {
             GridAsignaciones.DataSource = acua.MostrarAsignaciones();
@@ -40,6 +41,10 @@ namespace Horarios
                 foreach (string cad in docs.NombresDocentes())
                     DropListDocenteID.Items.Add(cad);
 
+                DropDownDocenteID2.Items.Clear();
+                foreach (string cad in docs.NombresDocentes())
+                    DropDownDocenteID2.Items.Add(cad);
+
                 DropListEditDocenteID.Items.Clear();
                 foreach (string cad in docs.NombresDocentes())
                     DropListEditDocenteID.Items.Add(cad);
@@ -52,6 +57,13 @@ namespace Horarios
                 foreach (string cad in asigna.NombresAsignaturas())
                     DropListEditAsignaturaID.Items.Add(cad);
 
+                DropListPeriInicio.Items.Clear();
+                foreach (string cad in peri.PeriodoInicio())
+                    DropListPeriInicio.Items.Add(cad);
+
+                DropListPeriFin.Items.Clear();
+                foreach (string cad in peri.PeriodoFin())
+                    DropListPeriFin.Items.Add(cad);
             }
         }
 
@@ -109,6 +121,15 @@ namespace Horarios
         {
             
             
+        }
+
+        protected void btnMostrarProfesorXRangoPeriodo_Click(object sender, EventArgs e)
+        {
+            int IdDoc =Convert.ToInt32(DropDownDocenteID2.SelectedIndex.ToString() +1);
+            int PeriIni = Convert.ToInt32(DropListPeriInicio.SelectedIndex.ToString()+1);
+            int PeriFin = Convert.ToInt32(DropListPeriFin.SelectedIndex.ToString()+1);
+            GridAsignaciones.DataSource = acua.MostrarXPeriodoYProfesor(PeriIni,PeriFin,IdDoc);
+            GridAsignaciones.DataBind();
         }
     }
 }

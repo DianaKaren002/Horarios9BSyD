@@ -36,6 +36,7 @@ namespace ClassBLLHorariosMySQL
             return contenedor;
         }
 
+
         public void EjecutaInstruccion(string instruccionSql)
         {
             using (MySqlConnection connection = new MySqlConnection(Conexion))
@@ -45,6 +46,49 @@ namespace ClassBLLHorariosMySQL
                 command.ExecuteNonQuery();
             }
         }
+        public DataTable MostrarAsignacionesXPeriodoYProfesor(int IdIni, int IdFin, int IdDocente)
+        {
+            DataTable resultTable = new DataTable();
+            string instSql =
+                "SELECT asig.IdAsignacion, g.Cuatrimestre, g.NomGrupo, g.Turno, " +
+                "p.NombrePeriodo, p.Año, asig.DocenteID, d.Nombre, d.A_Paterno, d.A_Materno, " +
+                "mat.NomAsignatura, p.P_inicio, p.P_Fin " +
+                "FROM grupos as g " +
+                "INNER JOIN periodos as p ON g.PeriodoID = p.idPeriodo " +
+                "INNER JOIN asignacioncuatrimestral as asig ON g.Idgrupo = asig.GrupoID " +
+                "INNER JOIN docentes as d ON asig.DocenteID = d.idDocente " +
+                "INNER JOIN asignaturas as mat ON asig.AsignaturaID = mat.idasignatura " +
+                "WHERE p.P_inicio BETWEEN (SELECT P_inicio FROM periodos WHERE idPeriodo = @perini) " +
+                "AND (SELECT P_inicio FROM periodos WHERE idPeriodo = @perfin) " +
+                "AND asig.DocenteID = @idprof";
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(Conexion))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(instSql, connection))
+                    {
+                        command.Parameters.AddWithValue("@perini", IdIni);
+                        command.Parameters.AddWithValue("@perfin", IdFin);
+                        command.Parameters.AddWithValue("@idprof", IdDocente);
+
+                        using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
+                        {
+                            adapter.Fill(resultTable);
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw new Exception("Error al mostrar Asignación cuatrimestral: " + ex.Message);
+            }
+
+            return resultTable;
+        }
+
 
         public string[] EjecutaSqlResultados(string instruccionSql)
         {

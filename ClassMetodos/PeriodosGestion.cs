@@ -104,6 +104,14 @@ namespace ClassMetodos
 
             return peri;
         }
+        public string[] PeriodoInicio()
+        {
+            return objBLL.EjecutaSqlResultados("select P_inicio from periodos");
+        }
+        public string[] PeriodoFin()
+        {
+            return objBLL.EjecutaSqlResultados("select P_Fin from periodos");
+        }
 
     }
 }
