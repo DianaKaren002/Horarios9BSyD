@@ -125,11 +125,17 @@ namespace Horarios
 
         protected void btnMostrarProfesorXRangoPeriodo_Click(object sender, EventArgs e)
         {
-            int IdDoc =Convert.ToInt32(DropDownDocenteID2.SelectedIndex.ToString() +1);
-            int PeriIni = Convert.ToInt32(DropListPeriInicio.SelectedIndex.ToString()+1);
-            int PeriFin = Convert.ToInt32(DropListPeriFin.SelectedIndex.ToString()+1);
-            GridAsignaciones.DataSource = acua.MostrarXPeriodoYProfesor(PeriIni,PeriFin,IdDoc);
+            int IdDoc =Convert.ToInt32(DropDownDocenteID2.SelectedIndex.ToString());
+            int PeriIni = Convert.ToInt32(DropListPeriInicio.SelectedIndex.ToString());
+            int PeriFin = Convert.ToInt32(DropListPeriFin.SelectedIndex.ToString());
+            int PeriFin1 =PeriFin +1 ;
+            int PeriIni1 = PeriIni+1;
+            int IdDoc1 = IdDoc+1;
+            Label1.Text = $"Docente :{IdDoc1} {PeriIni1}  {PeriFin1}";
+
+            GridAsignaciones.DataSource = acua.MostrarXPeriodoYProfesor(PeriIni1,PeriFin1,IdDoc1);
             GridAsignaciones.DataBind();
+            
         }
     }
 }

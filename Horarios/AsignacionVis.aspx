@@ -63,6 +63,7 @@
                         <asp:DropDownList ID="DropListPeriFin" runat="server"></asp:DropDownList>
                     </div>
                     <asp:Button ID="btnMostrarProfesorXRangoPeriodo" runat="server" CssClass="button-Pg is-rounded" Text="Mostrar por rango de periodos" Width="229px" OnClick="btnMostrarProfesorXRangoPeriodo_Click" />
+                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                 </div>
             </div>
             <div>

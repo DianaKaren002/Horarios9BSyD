@@ -58,8 +58,7 @@ namespace ClassBLLHorariosMySQL
                 "INNER JOIN asignacioncuatrimestral as asig ON g.Idgrupo = asig.GrupoID " +
                 "INNER JOIN docentes as d ON asig.DocenteID = d.idDocente " +
                 "INNER JOIN asignaturas as mat ON asig.AsignaturaID = mat.idasignatura " +
-                "WHERE p.P_inicio BETWEEN (SELECT P_inicio FROM periodos WHERE idPeriodo = @perini) " +
-                "AND (SELECT P_inicio FROM periodos WHERE idPeriodo = @perfin) " +
+                "WHERE p.idPeriodo BETWEEN @perini AND @perfin " +
                 "AND asig.DocenteID = @idprof";
 
             try
@@ -83,12 +82,12 @@ namespace ClassBLLHorariosMySQL
             }
             catch (MySqlException ex)
             {
+                // Devolver el mensaje de error como parte de la respuesta
                 throw new Exception("Error al mostrar Asignación cuatrimestral: " + ex.Message);
             }
 
             return resultTable;
         }
-
 
         public string[] EjecutaSqlResultados(string instruccionSql)
         {
