@@ -11,7 +11,7 @@ namespace ClassMetodos
 {
     public class AulasGestion
     {
-        private BLLHorarios objBLL = new BLLHorarios("Server=localhost; Port=3306; Database=horariosutp9b; Uid=root; SslMode=None;");
+        private BLLHorarios objBLL = new BLLHorarios();
 
         public DataTable MostrarAulas()
         {

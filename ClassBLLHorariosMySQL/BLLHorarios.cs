@@ -1,27 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
+using System.Configuration;
 using ClassDALMySql;
 
 namespace ClassBLLHorariosMySQL
 {
     public class BLLHorarios
     {
-        private string cad = "";
-        private MySqlConnection Conexion;
-        private DALMySQL objdal = null;
+        private string Conexion;
+        private DALMySQL objdal = new DALMySQL();
 
-        public BLLHorarios(string cadeconex)
+        public BLLHorarios()
         {
-            cad = cadeconex;
-            objdal = new DALMySQL(cad);
+            Conexion = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
         }
 
-        public string probarConexion()
+        public string ProbarConexion()
         {
             string mensaje = "";
             objdal.abrirConexion(ref mensaje);
@@ -31,161 +27,86 @@ namespace ClassBLLHorariosMySQL
         public DataSet ConsultaTabla(string insSql)
         {
             DataSet contenedor = new DataSet();
-            try
+            using (MySqlConnection connection = new MySqlConnection(Conexion))
             {
-                Conexion = new MySqlConnection(cad);
-                MySqlDataAdapter DA = new MySqlDataAdapter(insSql, Conexion);
-                DA.Fill(contenedor);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al consultar la tabla: " + ex.Message);
-            }
-            finally
-            {
-                if (Conexion != null && Conexion.State == ConnectionState.Open)
-                {
-                    Conexion.Close();
-                    Conexion.Dispose();
-                }
+                connection.Open();
+                MySqlDataAdapter adapter = new MySqlDataAdapter(insSql, connection);
+                adapter.Fill(contenedor);
             }
             return contenedor;
         }
+
         public void EjecutaInstruccion(string instruccionSql)
         {
-            try
+            using (MySqlConnection connection = new MySqlConnection(Conexion))
             {
-                Conexion = new MySqlConnection(cad);
-                MySqlCommand Comando = new MySqlCommand();
-                Comando.Connection = Conexion;
-                Comando.CommandText = instruccionSql;
-
-                Conexion.Open();
-                Comando.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al ejecutar la instrucción SQL: " + ex.Message);
-            }
-            finally
-            {
-                if (Conexion != null && Conexion.State == ConnectionState.Open)
-                {
-                    Conexion.Close();
-                    Conexion.Dispose();
-                }
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(instruccionSql, connection);
+                command.ExecuteNonQuery();
             }
         }
-        public string[] EjecutaSqlResultados(string instruccionsql)
+
+        public string[] EjecutaSqlResultados(string instruccionSql)
         {
             List<string> resultados = new List<string>();
-
-            try
+            using (MySqlConnection connection = new MySqlConnection(Conexion))
             {
-                Conexion = new MySqlConnection(cad);
-                MySqlCommand Comando = new MySqlCommand();
-                Comando.Connection = Conexion;
-                Comando.CommandText = instruccionsql;
-
-                Conexion.Open();
-                using (MySqlDataReader Lector = Comando.ExecuteReader())
+                MySqlCommand command = new MySqlCommand(instruccionSql, connection);
+                connection.Open();
+                using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    if (Lector.HasRows)
+                    while (reader.Read())
                     {
-                        while (Lector.Read())
-                        {
-                            resultados.Add(Lector[0].ToString());
-                        }
+                        resultados.Add(reader.GetString(0));
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al ejecutar la instrucción SQL: " + ex.Message);
-            }
-            finally
-            {
-                if (Conexion != null && Conexion.State == ConnectionState.Open)
-                {
-                    Conexion.Close();
-                    Conexion.Dispose();
-                }
-            }
-
             return resultados.ToArray();
         }
+
         public int[] EjecutaSqlResultadosInt(string instruccionSql)
         {
             List<int> resultados = new List<int>();
-
-            try
+            using (MySqlConnection connection = new MySqlConnection(Conexion))
             {
-                using (MySqlConnection conexion = new MySqlConnection(cad))
+                MySqlCommand command = new MySqlCommand(instruccionSql, connection);
+                connection.Open();
+                using (MySqlDataReader reader = command.ExecuteReader())
                 {
-                    using (MySqlCommand comando = new MySqlCommand(instruccionSql, conexion))
+                    while (reader.Read())
                     {
-                        conexion.Open();
-                        using (MySqlDataReader lector = comando.ExecuteReader())
-                        {
-                            if (lector.HasRows)
-                            {
-                                while (lector.Read())
-                                {
-                                    resultados.Add(lector.GetInt32(0));
-                                }
-                            }
-                        }
+                        resultados.Add(reader.GetInt32(0));
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al ejecutar la instrucción SQL: " + ex.Message);
-            }
-
             return resultados.ToArray();
         }
 
-        public string ObtenerUnicoResultado(string instruccionsql)
+        public string ObtenerUnicoResultado(string instruccionSql)
         {
             string resultado = string.Empty;
-
-            try
+            using (MySqlConnection connection = new MySqlConnection(Conexion))
             {
-                Conexion = new MySqlConnection(cad);
-                MySqlCommand Comando = new MySqlCommand();
-                Comando.Connection = Conexion;
-                Comando.CommandText = instruccionsql;
+                connection.Open();
+                MySqlCommand command = new MySqlCommand(instruccionSql, connection);
 
-                Conexion.Open();
-                object result = Comando.ExecuteScalar();
+                object result = command.ExecuteScalar();
                 if (result != null)
                 {
                     resultado = result.ToString();
                 }
             }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al ejecutar la instrucción SQL: " + ex.Message);
-            }
-            finally
-            {
-                if (Conexion != null && Conexion.State == ConnectionState.Open)
-                {
-                    Conexion.Close();
-                    Conexion.Dispose();
-                }
-            }
-
             return resultado;
         }
+
         public DataSet ConsultaTablaConParametros(string insSql, params MySqlParameter[] parametros)
         {
             DataSet contenedor = new DataSet();
             try
             {
-                using (MySqlConnection conexion = new MySqlConnection(cad))
+                using (MySqlConnection conexion = new MySqlConnection(Conexion)) // Cambié `cad` a `Conexion`
                 {
+                    conexion.Open();
                     MySqlCommand comando = new MySqlCommand(insSql, conexion);
                     comando.Parameters.AddRange(parametros);
                     MySqlDataAdapter da = new MySqlDataAdapter(comando);
@@ -199,30 +120,5 @@ namespace ClassBLLHorariosMySQL
 
             return contenedor;
         }
-
-        public DataSet ConsultaTabla2(string insSql)
-        {
-            DataSet contenedor = new DataSet();
-            try
-            {
-                Conexion = new MySqlConnection(cad);
-                MySqlDataAdapter DA = new MySqlDataAdapter(insSql, Conexion);
-                DA.Fill(contenedor);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error al consultar la tabla: " + ex.Message);
-            }
-            finally
-            {
-                if (Conexion != null && Conexion.State == ConnectionState.Open)
-                {
-                    Conexion.Close();
-                    Conexion.Dispose();
-                }
-            }
-            return contenedor;
-        }
-
     }
 }

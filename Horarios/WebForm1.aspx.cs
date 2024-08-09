@@ -17,8 +17,8 @@ namespace Horarios
 
         protected void btnConectarBD_Click(object sender, EventArgs e)
         {
-            BLLHorarios obBL = new BLLHorarios("Server=localhost; Port=3306; Database=horariosutp9b; Uid=root; SslMode=None;");
-            txtRespConex.Text = obBL.probarConexion();
+            BLLHorarios obBL = new BLLHorarios();
+            txtRespConex.Text = obBL.ProbarConexion();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace ClassMetodos
 {
     public class AsignaturasGestion
     {
-        private BLLHorarios objBLL = new BLLHorarios("Server=localhost; Port=3306; Database=horariosutp9b; Uid=root; SslMode=None;");
+        private BLLHorarios objBLL = new BLLHorarios();
 
         public DataTable MostrarAsignaturas()
         {

@@ -1,4 +1,5 @@
 ﻿using ClassBLLHorariosMySQL;
+using ClassDALMySql;
 using ClassEntities;
 using System;
 using System.Collections.Generic;
@@ -11,8 +12,8 @@ using System.Threading.Tasks;
 namespace ClassMetodos
 {
     public class AsignacionCuatriGestion
-    {
-        private BLLHorarios objBLL = new BLLHorarios("Server=localhost; Port=3306; Database=horariosutp9b; Uid=root; SslMode=None;");
+    { 
+        private BLLHorarios conexion = new BLLHorarios();
 
         public DataTable MostrarAsignaciones()
         {
@@ -24,7 +25,7 @@ namespace ClassMetodos
 
             try
             {
-                DataSet ds = objBLL.ConsultaTabla(instSql);
+                DataSet ds = conexion.ConsultaTabla(instSql);
                 if (ds != null && ds.Tables.Count > 0)
                 {
                     resultTable = ds.Tables[0];
@@ -39,14 +40,14 @@ namespace ClassMetodos
         }
         public void Bajas(int NumId)
         {
-            objBLL.EjecutaInstruccion("delete from asignacioncuatrimestral where idAsignacion = '" + NumId + "' ");
+            conexion.EjecutaInstruccion("delete from asignacioncuatrimestral where idAsignacion = '" + NumId + "' ");
         }
         public string InsertarAsignacion(AsignacionCuatrimestral nueva)
         {
             string Mensaje;
             try
             {
-                objBLL.EjecutaInstruccion($"INSERT INTO asignacioncuatrimestral (GrupoID, DocenteID, AsignaturaID)" +
+                conexion.EjecutaInstruccion($"INSERT INTO asignacioncuatrimestral (GrupoID, DocenteID, AsignaturaID)" +
                     $" VALUES ('{nueva.GrupoID}', '{nueva.DocenteID}', '{nueva.AsignaturaId}');");
                 return Mensaje = "Asignacion registrado correctamente.";
             }
@@ -57,16 +58,16 @@ namespace ClassMetodos
         }
         public void EditarAsignacionXid(AsignacionCuatrimestral nueva, int idOld)
         {
-            objBLL.EjecutaInstruccion($"UPDATE asignacioncuatrimestral set GrupoID = '{nueva.GrupoID}', DocenteID = '{nueva.DocenteID}', AsignaturaID = '{nueva.AsignaturaId}'," +
+            conexion.EjecutaInstruccion($"UPDATE asignacioncuatrimestral set GrupoID = '{nueva.GrupoID}', DocenteID = '{nueva.DocenteID}', AsignaturaID = '{nueva.AsignaturaId}'," +
                 $" WHERE idAsignacion = '{idOld}'");
         }
         public int[] IdsAsignacion()
         {
-            return objBLL.EjecutaSqlResultadosInt("select idAsignacion from asignacioncuatrimestral");
+            return conexion.EjecutaSqlResultadosInt("select idAsignacion from asignacioncuatrimestral");
         }
         public int DevuelveIDAsignacion(int idAsig)
         {
-            return Convert.ToInt32(objBLL.ObtenerUnicoResultado($"select idAsignacion from asignacioncuatrimestral where idAsignacion = '{idAsig}'"));
+            return Convert.ToInt32(conexion.ObtenerUnicoResultado($"select idAsignacion from asignacioncuatrimestral where idAsignacion = '{idAsig}'"));
         }
         
         public AsignacionCuatrimestral ObtenerAsignacionXid(string id)
@@ -76,7 +77,7 @@ namespace ClassMetodos
 
             try
             {
-                DataSet ds = objBLL.ConsultaTabla(instSql);
+                DataSet ds = conexion.ConsultaTabla(instSql);
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     DataRow row = ds.Tables[0].Rows[0];

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,27 +11,18 @@ namespace ClassDALMySql
 {
     public class DALMySQL
     {
-        public string cadconex { get; set; }
-        public DALMySQL(string cadenaCon)
+        public DALMySQL()
         {
-            cadconex = cadenaCon;
+            
         }
-        public MySqlConnection abrirConexion(ref string mensaje)
+        public void abrirConexion(ref string mensaje)
         {
-            MySqlConnection cn1 = new MySqlConnection();
-            cn1.ConnectionString = cadconex;
-            try
-            {
-                cn1.Open();
-                mensaje = "Conexión Abierta";
 
-            }
-            catch (Exception ex)
+            string ConnectionString = ConfigurationManager.ConnectionStrings["MySqlConnection"].ConnectionString;
+            using (MySqlConnection connection = new MySqlConnection(ConnectionString))
             {
-                cn1 = null;
-                mensaje = "Error: " + ex.Message;
+                connection.Open();
             }
-            return cn1;
         }
 
         public Boolean ModificarcacionBd(string sentSQL, MySqlConnection cnab, ref string mensaje)
