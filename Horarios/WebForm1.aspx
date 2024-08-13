@@ -27,7 +27,8 @@
                 </div>
                 <div id="navbarMenu" class="navbar-menu ">
                     <div class="navbar-item ">
-                        <a class="navbar-item " href="Periodo.aspx">Periodo</a>
+                        <a class="navbar-item " href="ContrareciboVista.aspx">Contrarecibo</a>
+                        <a class="navbar-item " href="DetallesContraRecibo2.aspx">DetallesContrarecibo</a>
                         <a class="navbar-item" href="GrupoVis.aspx">Grupo</a>
                         <a class="navbar-item" href="GradoEsp.aspx">Grado</a>
                         <a class="navbar-item" href="Especialidad.aspx">Especialidad</a>

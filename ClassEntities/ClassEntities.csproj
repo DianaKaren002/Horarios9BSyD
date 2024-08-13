@@ -83,6 +83,8 @@
     <Compile Include="AsignacionCuatrimestral.cs" />
     <Compile Include="Asignatura.cs" />
     <Compile Include="Aulas.cs" />
+    <Compile Include="Contrarecibo.cs" />
+    <Compile Include="DetallesContrareciboClass.cs" />
     <Compile Include="DiaSemana.cs" />
     <Compile Include="Divisiones.cs" />
     <Compile Include="Docentes.cs" />

@@ -82,6 +82,8 @@
   <ItemGroup>
     <Compile Include="AsignaturasGestion.cs" />
     <Compile Include="AulasGestion.cs" />
+    <Compile Include="ContrareciboGestion.cs" />
+    <Compile Include="DetalleContrarGestion.cs" />
     <Compile Include="DiasGestion.cs" />
     <Compile Include="DivisionGestion.cs" />
     <Compile Include="DocentesGestion.cs" />

@@ -105,8 +105,11 @@
     <Content Include="AsignacionVis.aspx" />
     <Content Include="Asignaturas.aspx" />
     <Content Include="Aula.aspx" />
+    <Content Include="ContrareciboVista.aspx" />
     <Content Include="CSS\StyleSheetPopup.css" />
     <Content Include="CSS\txtyBtn.css" />
+    <Content Include="DetallesContrarecibo.aspx" />
+    <Content Include="DetallesContraRecibo2.aspx" />
     <Content Include="Division.aspx" />
     <Content Include="Docente.aspx" />
     <Content Include="Edificio.aspx" />
@@ -143,6 +146,27 @@
     </Compile>
     <Compile Include="Aula.aspx.designer.cs">
       <DependentUpon>Aula.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContrareciboVista.aspx.cs">
+      <DependentUpon>ContrareciboVista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContrareciboVista.aspx.designer.cs">
+      <DependentUpon>ContrareciboVista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetallesContrarecibo.aspx.cs">
+      <DependentUpon>DetallesContrarecibo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetallesContrarecibo.aspx.designer.cs">
+      <DependentUpon>DetallesContrarecibo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetallesContraRecibo2.aspx.cs">
+      <DependentUpon>DetallesContraRecibo2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetallesContraRecibo2.aspx.designer.cs">
+      <DependentUpon>DetallesContraRecibo2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Division.aspx.cs">
       <DependentUpon>Division.aspx</DependentUpon>
