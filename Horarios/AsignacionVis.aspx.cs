@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -57,13 +58,13 @@ namespace Horarios
                 foreach (string cad in asigna.NombresAsignaturas())
                     DropListEditAsignaturaID.Items.Add(cad);
 
-                DropListPeriInicio.Items.Clear();
-                foreach (string cad in peri.PeriodoInicio())
-                    DropListPeriInicio.Items.Add(cad);
+                //DropListPeriInicio.Items.Clear();
+                //foreach (string cad in peri.PeriodoInicio())
+                //    DropListPeriInicio.Items.Add(cad);
 
-                DropListPeriFin.Items.Clear();
-                foreach (string cad in peri.PeriodoFin())
-                    DropListPeriFin.Items.Add(cad);
+                //DropListPeriFin.Items.Clear();
+                //foreach (string cad in peri.PeriodoFin())
+                //    DropListPeriFin.Items.Add(cad);
             }
         }
 
@@ -78,12 +79,18 @@ namespace Horarios
 
         protected void btnRegistrarAsignacion_Click(object sender, EventArgs e)
         {
-            int grupId = Convert.ToInt32(gru.DevuelveIDGrupo(DropListGrupoID.SelectedValue));
-            int dId = Convert.ToInt32(docs.DevuelveIDDocente(DropListDocenteID.SelectedValue));
+            string nombreCompleto = DropListDocenteID.SelectedValue;
+            string[] partes = nombreCompleto.Split(' ');
+            string nombre = partes[0];
+
+            int grupId = Convert.ToInt32(DropListGrupoID.SelectedIndex.ToString());
+            int dId = Convert.ToInt32(docs.IdXNombre(nombre));
             int ASigID = Convert.ToInt32(asigna.DevuelveIDAsignatura(DropListAsignaturaID.SelectedValue));
+            int grupoId1 = grupId + 1;
+            int DocAP = dId ;
             AsignacionCuatrimestral Nueva = new AsignacionCuatrimestral
             {
-                GrupoID =grupId,
+                GrupoID = grupoId1,
                 DocenteID = dId,
                 AsignaturaId = ASigID
             };
@@ -125,15 +132,16 @@ namespace Horarios
 
         protected void btnMostrarProfesorXRangoPeriodo_Click(object sender, EventArgs e)
         {
-            int IdDoc =Convert.ToInt32(DropDownDocenteID2.SelectedIndex.ToString());
-            int PeriIni = Convert.ToInt32(DropListPeriInicio.SelectedIndex.ToString());
-            int PeriFin = Convert.ToInt32(DropListPeriFin.SelectedIndex.ToString());
-            int PeriFin1 =PeriFin +1 ;
-            int PeriIni1 = PeriIni+1;
-            int IdDoc1 = IdDoc+1;
-            Label1.Text = $"Docente :{IdDoc1} {PeriIni1}  {PeriFin1}";
+            string nombreCompleto = DropDownDocenteID2.SelectedValue;
+            string[] partes = nombreCompleto.Split(' ');
+            string nombre = partes[0];
+            int IdDoc = Convert.ToInt32(docs.IdXNombre(nombre));
+            string PeriIni = DropListPeriInicio.SelectedValue.Trim();
+            string PeriFin =DropListPeriFin.SelectedValue.Trim();
+            string periodo = $"{PeriIni} - {PeriFin}";
+            Label1.Text = $"Docente :{IdDoc} {PeriIni}  {PeriFin}";
             
-            GridAsignaciones.DataSource = acua.MostrarXPeriodoYProfesor(PeriIni1,PeriFin1,IdDoc1);
+            GridAsignaciones.DataSource = acua.MostrarXPeriodoYProfesor(periodo, IdDoc);
             GridAsignaciones.DataBind();
         }
     }

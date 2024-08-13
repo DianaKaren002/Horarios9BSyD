@@ -56,8 +56,13 @@ namespace ClassMetodos
         }
         public string[] NombresDocentes()
         {
-            return objBLL.EjecutaSqlResultados("select Nombre from docentes");
+            return objBLL.EjecutaSqlResultados("select concat (Nombre,' ',A_Paterno, ' ', A_Materno) as datos from docentes;");
         }
+        public string IdXNombre(string nombre)
+        {
+            return objBLL.ObtenerUnicoResultado($"select idDocente from docentes where Nombre= '{nombre}' ");
+        }
+        
         public int DevuelveIDDocente(string NomDoce)
         {
             return Convert.ToInt32(objBLL.ObtenerUnicoResultado($"select idDocente from docentes where Nombre = '{NomDoce}'"));

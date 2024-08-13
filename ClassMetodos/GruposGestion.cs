@@ -37,7 +37,7 @@ namespace ClassMetodos
         }
         public void Bajas(int NumId)
         {
-            objBLL.EjecutaInstruccion("delete from grupos where Idgrupo = '" + NumId + "' ");
+            objBLL.EjecutaInstruccion("delete from asignacioncuatrimestral where idAsignacion = '" + NumId + "' ");
         }
         public string InsertarGrupo(Grupos nueva)
         {
@@ -61,7 +61,11 @@ namespace ClassMetodos
         }
         public string[] NombresGrupos()
         {
-            return objBLL.EjecutaSqlResultados("select NomGrupo from grupos");
+            return objBLL.EjecutaSqlResultados("select concat(Cuatrimestre, '', NomGrupo) as datos from grupos;");
+        }
+        public string[] Cuatrimestre()
+        {
+            return objBLL.EjecutaSqlResultados("select Cuatrimestre from grupos");
         }
         public int DevuelveIDGrupo(string NomGrup)
         {

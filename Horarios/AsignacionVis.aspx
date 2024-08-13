@@ -56,11 +56,37 @@
                     </div>
                     <div class="mb-3">
                         <h2 class="titles">Periodo inicio:</h2>
-                        <asp:DropDownList ID="DropListPeriInicio" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="DropListPeriInicio" runat="server">
+                            <asp:ListItem>Enero</asp:ListItem>
+<asp:ListItem>Febrero</asp:ListItem>
+<asp:ListItem>Marzo</asp:ListItem>
+<asp:ListItem>Abril</asp:ListItem>
+<asp:ListItem>Mayo</asp:ListItem>
+<asp:ListItem>Junio</asp:ListItem>
+<asp:ListItem>Julio</asp:ListItem>
+<asp:ListItem>Agosto</asp:ListItem>
+<asp:ListItem>Septiembre</asp:ListItem>
+<asp:ListItem>Octubre</asp:ListItem>
+<asp:ListItem>Noviembre</asp:ListItem>
+<asp:ListItem>Diciembre</asp:ListItem>
+                        </asp:DropDownList>
                     </div>
                     <div class="mb-3">
                         <h2 class="titles">Periodo Fin:</h2>
-                        <asp:DropDownList ID="DropListPeriFin" runat="server"></asp:DropDownList>
+                        <asp:DropDownList ID="DropListPeriFin" runat="server">
+                            <asp:ListItem>Enero</asp:ListItem>
+                            <asp:ListItem>Febrero</asp:ListItem>
+                            <asp:ListItem>Marzo</asp:ListItem>
+                            <asp:ListItem>Abril</asp:ListItem>
+                            <asp:ListItem>Mayo</asp:ListItem>
+                            <asp:ListItem>Junio</asp:ListItem>
+                            <asp:ListItem>Julio</asp:ListItem>
+                            <asp:ListItem>Agosto</asp:ListItem>
+                            <asp:ListItem>Septiembre</asp:ListItem>
+                            <asp:ListItem>Octubre</asp:ListItem>
+                            <asp:ListItem>Noviembre</asp:ListItem>
+                            <asp:ListItem>Diciembre</asp:ListItem>
+                        </asp:DropDownList>
                     </div>
                     <asp:Button ID="btnMostrarProfesorXRangoPeriodo" runat="server" CssClass="button-Pg is-rounded" Text="Mostrar por rango de periodos" Width="229px" OnClick="btnMostrarProfesorXRangoPeriodo_Click" />
                     <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
@@ -89,11 +115,19 @@
                         </Columns>
                     </asp:GridView>
                 </div>
+                <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                  <br />
                 <div id="popup" class="popup">
                     <div class="popup-content">
                         <span class="close" onclick="cerrarPopup()">&times;</span>
                         <div class="mb-3">
-                            <asp:DropDownList ID="DropListGrupoID" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="DropListGrupoID" runat="server" Width="195px"></asp:DropDownList>
                         </div>
                         <div class="mb-3">
                             <asp:DropDownList ID="DropListDocenteID" runat="server"></asp:DropDownList>

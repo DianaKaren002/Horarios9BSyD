@@ -46,7 +46,7 @@ namespace ClassBLLHorariosMySQL
                 command.ExecuteNonQuery();
             }
         }
-        public DataTable MostrarAsignacionesXPeriodoYProfesor(int IdIni, int IdFin, int IdDocente)
+        public DataTable MostrarAsignacionesXPeriodoYProfesor(string periodosNom, int IdDocente)
         {
             DataTable resultTable = new DataTable();
             string instSql =
@@ -58,7 +58,7 @@ namespace ClassBLLHorariosMySQL
                 "INNER JOIN asignacioncuatrimestral as asig ON g.Idgrupo = asig.GrupoID " +
                 "INNER JOIN docentes as d ON asig.DocenteID = d.idDocente " +
                 "INNER JOIN asignaturas as mat ON asig.AsignaturaID = mat.idasignatura " +
-                "WHERE p.idPeriodo BETWEEN @perini AND @perfin " +
+                "WHERE p.NombrePeriodo = @periodo " +
                 "AND asig.DocenteID = @idprof";
 
             try
@@ -69,9 +69,8 @@ namespace ClassBLLHorariosMySQL
 
                     using (MySqlCommand command = new MySqlCommand(instSql, connection))
                     {
-                        // Usa Add para evitar problemas con tipos de datos
-                        command.Parameters.Add("@perini", MySqlDbType.Int32).Value = IdIni;
-                        command.Parameters.Add("@perfin", MySqlDbType.Int32).Value = IdFin;
+                        // Corregir el tipo de dato de @periodo a MySqlDbType.VarChar
+                        command.Parameters.Add("@periodo", MySqlDbType.VarChar).Value = periodosNom;
                         command.Parameters.Add("@idprof", MySqlDbType.Int32).Value = IdDocente;
 
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(command))
@@ -84,7 +83,7 @@ namespace ClassBLLHorariosMySQL
                 // Depuración: Imprimir la consulta final y los parámetros
                 Console.WriteLine("Consulta SQL:");
                 Console.WriteLine(instSql);
-                Console.WriteLine($"Parámetros: perini = {IdIni}, perfin = {IdFin}, idprof = {IdDocente}");
+                Console.WriteLine($"Parámetros: periodo = {periodosNom}, idprof = {IdDocente}");
             }
             catch (MySqlException ex)
             {
@@ -94,6 +93,7 @@ namespace ClassBLLHorariosMySQL
 
             return resultTable;
         }
+
 
         public string[] EjecutaSqlResultados(string instruccionSql)
         {

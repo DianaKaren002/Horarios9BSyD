@@ -133,9 +133,9 @@ namespace ClassMetodos
 
             return asigna;
         }
-        public DataTable MostrarXPeriodoYProfesor(int IdIni, int IdFin, int IdDocente)
+        public DataTable MostrarXPeriodoYProfesor(string perin, int IdDocente)
         {
-            return conexion.MostrarAsignacionesXPeriodoYProfesor(IdIni, IdFin, IdDocente);
+            return conexion.MostrarAsignacionesXPeriodoYProfesor(perin, IdDocente);
         }
     }
 }
