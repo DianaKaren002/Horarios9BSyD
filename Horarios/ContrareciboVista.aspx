@@ -29,7 +29,7 @@
               <div class="navbar-item ">
                   <a class="navbar-item " href="ContrareciboVista.aspx">Contrarecibo</a>
                   <a class="navbar-item " href="DetallesContraRecibo2.aspx">DetallesContrarecibo</a>
-                  <a class="navbar-item" href="GrupoVis.aspx">Grupo</a>
+                  <a class="navbar-item" href="DetalleNotaVista.aspx">Notas</a>
                   <a class="navbar-item" href="GradoEsp.aspx">Grado</a>
                   <a class="navbar-item" href="Especialidad.aspx">Especialidad</a>
                   <a class="navbar-item" href="Edificio.aspx">Edificio</a>
@@ -51,7 +51,6 @@
                 <asp:GridView ID="GridContrarecibos" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridContrarecibos_SelectedIndexChanged" >
     <Columns>
         <asp:BoundField DataField="idcontrarecibo" HeaderText="Num" />
-        <asp:BoundField DataField="fecha" HeaderText="Fecha" />
         <asp:BoundField DataField="NombreObra" HeaderText="Obra" />
         <asp:BoundField DataField="Direccion" HeaderText="Direccion" />
         <asp:BoundField DataField="FechaInicio" HeaderText="Inicio" />

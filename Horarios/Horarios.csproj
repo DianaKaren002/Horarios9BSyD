@@ -108,6 +108,7 @@
     <Content Include="ContrareciboVista.aspx" />
     <Content Include="CSS\StyleSheetPopup.css" />
     <Content Include="CSS\txtyBtn.css" />
+    <Content Include="DetalleNotaVista.aspx" />
     <Content Include="DetallesContrarecibo.aspx" />
     <Content Include="DetallesContraRecibo2.aspx" />
     <Content Include="Division.aspx" />
@@ -153,6 +154,13 @@
     </Compile>
     <Compile Include="ContrareciboVista.aspx.designer.cs">
       <DependentUpon>ContrareciboVista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleNotaVista.aspx.cs">
+      <DependentUpon>DetalleNotaVista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleNotaVista.aspx.designer.cs">
+      <DependentUpon>DetalleNotaVista.aspx</DependentUpon>
     </Compile>
     <Compile Include="DetallesContrarecibo.aspx.cs">
       <DependentUpon>DetallesContrarecibo.aspx</DependentUpon>

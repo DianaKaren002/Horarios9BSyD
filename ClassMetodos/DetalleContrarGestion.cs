@@ -55,7 +55,7 @@ namespace ClassMetodos
         //segunda concatenacion
         public string[] Folionotas()
         {
-            return conexion.EjecutaSqlResultados("select concat(n.numeronota,' ',p.RazonSocial,' ', n.fecha) as datos\r\nfrom notacompra n \r\ninner join proveedormaterial p on p.idproveedor = n.Proveedor;\r\n");
+            return conexion.EjecutaSqlResultados("select concat(n.numeronota,' ',p.RazonSocial,' ', n.fecha) as datos from notacompra n inner join proveedormaterial p on p.idproveedor = n.Proveedor;");
         }
         public int DevuelveIDObraXNombre(string nombreObra)
         {

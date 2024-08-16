@@ -5,7 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>Detalles Contra Recibo</title>
+
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" />
+ <link href="CSS/Navar.css" rel="stylesheet" />
+ <link href="CSS/txtyBtn.css" rel="stylesheet" />
 </head>
 <body>
     <nav class="container navbar is-primary">
@@ -26,7 +30,7 @@
                 <div class="navbar-item ">
                     <a class="navbar-item " href="ContrareciboVista.aspx">Contrarecibo</a>
                     <a class="navbar-item " href="DetallesContraRecibo2.aspx">DetallesContrarecibo</a>
-                    <a class="navbar-item" href="GrupoVis.aspx">Grupo</a>
+                    <a class="navbar-item" href="DetalleNotaVista.aspx">Notas</a>
                     <a class="navbar-item" href="GradoEsp.aspx">Grado</a>
                     <a class="navbar-item" href="Especialidad.aspx">Especialidad</a>
                     <a class="navbar-item" href="Edificio.aspx">Edificio</a>
@@ -45,7 +49,7 @@
         <div>
             <div>
                 <div>
-                    <h2>Contrarecibos</h2>
+                   
                     <asp:GridView ID="GridDetallesContra" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridDetallesContra_SelectedIndexChanged">
                         <Columns>
                             <asp:BoundField DataField="NombreObra" HeaderText="Obra" />
@@ -70,7 +74,7 @@
                 <asp:DropDownList ID="DropListNombreObra" runat="server"></asp:DropDownList>
                     <br />
                     Selecciona Nota por folio:<br />
-                    <asp:DropDownList ID="DropListNota1" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="DropListNota1" runat="server" OnSelectedIndexChanged="DropListNota1_SelectedIndexChanged"></asp:DropDownList>
                     <br />
                     Escribe total:
                 <asp:TextBox ID="txtTotal" runat="server"></asp:TextBox>
